@@ -1,0 +1,1 @@
+console.log("nodemon uygulandı. açıklamalar -q ile silindi.")

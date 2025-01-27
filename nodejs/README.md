@@ -17,3 +17,10 @@ npm run tailwind
 
 npm list
 npm outdated(Güncellenmiş ve mevcutları karşılaştırır.)
+
+npm install -g nodemon  > global olarak nodemon kuruldu. Anlık kod çalıştırılmasını sağlıyor.
+npm install nodemon --save  > json dosyasonda dependencies kodunu oluşturdu.
+npm run nodemon > açıklamaları silmek için json içinde nodemon_q güncellemesi yapıldı.
+nodemon ./filepath/[filename]
+
+JS ES5 -ES6

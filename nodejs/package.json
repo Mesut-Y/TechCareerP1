@@ -1,0 +1,9 @@
+{
+"scripts": {
+  "nodemon_q" : "nodemon -q ./_2-Nodemon.js"
+},
+
+  "dependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
