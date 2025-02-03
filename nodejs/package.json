@@ -1,9 +1,1 @@
-{
-"scripts": {
-  "nodemon_q" : "nodemon -q ./_2-Nodemon.js"
-},
-
-  "dependencies": {
-    "nodemon": "^3.1.9"
-  }
-}
+{"scripts":{"nodemon_q":"nodemon -q ./4_Stream/1_CreateReadStream.js"},"dependencies":{"nodemon":"^3.1.9"}}
