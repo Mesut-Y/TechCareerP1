@@ -1,3 +1,4 @@
+//Server Object
 const serverDataObject={
     host:'localhost', //domain
     port:1111,
@@ -11,8 +12,14 @@ const serverDataObject={
     }
 }
 
+//Html Object
+const htmlFilePath="./example.html";
+
 //Http Modül
 const http=require('http');  //require ile veri oluştur.
+ 
+//File System
+const fs=require('fs')
 
 //Server Oluşturmak
 const server=http.createServer(function(request,response){
@@ -34,15 +41,23 @@ const server=http.createServer(function(request,response){
     console.log(request.headers);
     console.log(request.headers.age);
     console.log(request.headers.host); //çeşitli bilgiler alınabilir.
+    response.write("Request Field </br>")
 
-    //Response
-    console.log("******** RESPONSE ********");
-    console.log(response);
-    response.write("Response Field: response.write komutu ile yazıldı. <br/>");
+    //HTML Sayfasını Okumak
+    fs.readFile(htmlFilePath,(err,data)=>{
+        if(err)
+        {
+            console.log("HTML sayfası okunamadı.");
+            console.error(err);
+            throw(err);
+        }
+        console.log("HTML dosyası okundu.");
+        console.log(data);    //hem konsolda gözükür.
+        response.write(data); //hem de sayfada
+    });
 
-    //End
-    //response.end(`Hoşgeldiniz Node Js Sunucusuna \n http://localhost:${serverDataObject.port} Bu porttan yayın yapılıyor. A`);
-    response.end(` üşğçö Hoşgeldiniz Node Js Sunucusuna \n http://${serverDataObject.host}:${serverDataObject.port} Bu portta yayın yapılıyor.B`);
+    //Response - END
+    response.end;
 
 }); //end server
 

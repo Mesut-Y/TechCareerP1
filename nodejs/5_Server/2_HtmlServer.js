@@ -1,3 +1,4 @@
+//Server Object
 const serverDataObject={
     host:'localhost', //domain
     port:1111,
@@ -10,6 +11,22 @@ const serverDataObject={
         internalServerError:500 //server hatası
     }
 }
+
+//Html Object
+const html=`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Server Yapısı</title>
+</head>
+<body>
+    <p> MERHABALAR HTML SAYFASI  </p>
+</body>
+</html> `
+
+
 
 //Http Modül
 const http=require('http');  //require ile veri oluştur.
@@ -34,15 +51,19 @@ const server=http.createServer(function(request,response){
     console.log(request.headers);
     console.log(request.headers.age);
     console.log(request.headers.host); //çeşitli bilgiler alınabilir.
+    response.write("Request Field </br>")
 
     //Response
     console.log("******** RESPONSE ********");
     console.log(response);
-    response.write("Response Field: response.write komutu ile yazıldı. <br/>");
+    //Html Object
+    response.write(html);  //html object buraya ekledik
 
     //End
     //response.end(`Hoşgeldiniz Node Js Sunucusuna \n http://localhost:${serverDataObject.port} Bu porttan yayın yapılıyor. A`);
-    response.end(` üşğçö Hoşgeldiniz Node Js Sunucusuna \n http://${serverDataObject.host}:${serverDataObject.port} Bu portta yayın yapılıyor.B`);
+    
+    //html doküman görününce end boş olması daha uygun
+    response.end();
 
 }); //end server
 
