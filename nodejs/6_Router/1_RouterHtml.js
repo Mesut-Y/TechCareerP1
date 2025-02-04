@@ -1,3 +1,8 @@
+//Dosya Yolu
+console.log(__dirname);
+console.log(__filename);
+
+//Server Object
 const serverDataObject={
     host:'localhost', //domain
     port:1111,
@@ -11,8 +16,17 @@ const serverDataObject={
     }
 };
 
+//Sayfalar request.url yönlendirmelerinde kullanılır
+const index="./index.html";
+const blog="./blog.html";
+const register="./register.html";
+const notFound="./notFound.html";
+
 //Http Modül
 const http=require('http');  //require ile veri oluştur.
+ 
+//File System
+const fs=require('fs')
 
 //Server Oluşturmak
 const server=http.createServer(function(request,response){
@@ -25,7 +39,7 @@ const server=http.createServer(function(request,response){
     // response.writeHead(200,{"content-type":"text/plain ; charset=utf-8"}); // plain alternatifi
     // response.writeHead(200,{"content-type":"text/application/json ; charset=utf-8"}); //json alternatifi
     response.writeHead(serverDataObject.statusCode.success, {"content-type":"text/Html ; charset=utf-8"});
-    response.write("Header Fiels <br/>");
+    //response.write("Header Fiels <br/>");
     
     //Request
     console.log("******** REQUEST ********");
@@ -34,15 +48,35 @@ const server=http.createServer(function(request,response){
     console.log(request.headers);
     console.log(request.headers.age);
     console.log(request.headers.host); //çeşitli bilgiler alınabilir.
+    //response.write("Request Field </br>")
 
-    //Response
-    console.log("******** RESPONSE ********");
-    console.log(response);
-    response.write("Response Field: response.write komutu ile yazıldı. <br/>");
-
-    //End
-    //response.end(`Hoşgeldiniz Node Js Sunucusuna \n http://localhost:${serverDataObject.port} Bu porttan yayın yapılıyor. A`);
-    response.end(` üşğçö Hoşgeldiniz Node Js Sunucusuna \n http://${serverDataObject.host}:${serverDataObject.port} Bu portta yayın yapılıyor.B`);
+    if(request.method === 'GET'){    //request client isteği GET
+        //ROOT
+        if( request.url === '/' || request.url === '/index'){
+            fs.readFile(index,(err,data)=>{
+                if(err)
+                    throw err;
+                response.end(data);
+            })
+        } else if( request.url === '/' || request.url === '/blog'){
+            fs.readFile(blog,(err,data)=>{
+                if(err)
+                    throw err;
+                response.end(data);
+            })
+        } else if( request.url === '/' || request.url === '/register'){
+            fs.readFile(register,(err,data)=>{
+                if(err)
+                    throw err;
+                response.end(data);
+            })
+        } else {
+            fs.readFile(notFound,(err,data)=>{
+                if(err)
+                    throw err;
+                response.end(data);
+            })
+    }}
 
 }); //end server
 
