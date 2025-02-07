@@ -10,7 +10,7 @@ const serverDataObject={
         forbidden:403,
         internalServerError:500 //server hatası
     }
-}
+};
 
 //Html Object
 const htmlFilePath="./example.html";
