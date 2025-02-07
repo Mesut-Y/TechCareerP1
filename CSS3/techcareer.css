@@ -15,7 +15,8 @@ h2{
     line-height: 20px;
     column-count: 2;
 
-    -o-text-overflow: /*farklı browserlar için*/
+    -o-text-overflow: ellipsis ;/*farklı browserlarda hariç tutmak için için*/
+    /* -o opera -moz mozilla*/
 }
 
 .div_class{
@@ -29,4 +30,23 @@ h2{
     box-shadow: 1px 2px 1px 4px rgba(0,0,0,.5);
     border-radius: 10%;
     border-bottom-right-radius: 40%;
+}
+
+/*Color .div_common*/
+
+.div_common{
+    height: 100px;
+    width: 50%;
+    margin-bottom: 20px;
+    padding:2rem;
+}
+.color_class{
+    color:white;
+    background-color: black;
+    background-color: red; 
+    background-color: #f00;
+    background-color: #ff0000;
+    background-color: hsl(0, 100%, 50%); /* Hue, Saturation, Lightness */
+    background-color: rgba(255,0,0,0.6); /* son yazılan uygulanır.*/
+    
 }
