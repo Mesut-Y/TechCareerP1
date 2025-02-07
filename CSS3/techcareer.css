@@ -3,3 +3,17 @@ h2{
     color:aqua;
     background-color:bisque;
 }
+
+#parag_id{
+    font-size: 16px !important; /* important  önceki yazılan eziliyor*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    line-height: 1.2;
+    text-align: justify;
+    text-transform: capitalize;
+    text-shadow: 0.1px 0.2px 0.5px blue;
+    line-height: 20px;
+    -o-text-overflow: /*farklı browserlar için*/
+
+
+}
